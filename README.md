@@ -1,2 +1,2 @@
-# HTML-CSS-JS-pet
+# HTML-CSS-JS-pet проекты
 Весь backend взять с интернета
