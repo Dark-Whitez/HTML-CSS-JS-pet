@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/normalize.css">
+    <link rel="stylesheet" href="./style/bootstrap.min.css">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/media.css">
+    <script defer src="./script/main.js"></script>
+    <title>CRM</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container-lg container-md header__container">
+            <ul class="row header__list align-items-center">
+                <li class="col-lg-2 col-md-2 col-sm-2 col-3 header__item">
+                    <img src="./img/logo.png" alt="skb." class="header__logo">
+                </li>
+                <li class="col-lg-8 col-md-8 col-sm-10 header__item">
+                    <form class="form-group header__form">
+                        <input type="text" class="form-control header__form-input" id="search"
+                            placeholder="Введите запрос">
+                        <ul class="header__form-list">
+                            <li class="header__form-item header__form-item-not-found">Ничего не&nbsp;найдено</li>
+                        </ul>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <main class="main">
+        <section class="clients">
+            <div class="container-lg container-md clients__container">
+                <h1 class="clients__title">Клиенты</h1>
+                <div class="clients__table-bg">
+                </div>
+                <div class="clients__table-scroll">
+                    <table class="table clients__table" id="table">
+                        <thead class="clients__table-head">
+                            <tr class="clients__table-head-row">
+                                <th scope="col" class="clients__table-title" data-name="id">
+                                    <span class="clients__table-title-id clients__table-arrow-up">ID</span>
+                                </th>
+                                <th scope="col" class="clients__table-title" data-name="fio">
+                                    <span class="clients__table-title-fio">Фамилия Имя
+                                        Отчество</span>
+                                </th>
+                                <th scope="col" class="clients__table-title" data-name="date">
+                                    <span class="clients__table-title-date clients__table-arrow-down">Дата и&nbsp;время
+                                        создания</span>
+                                </th>
+                                <th scope="col" class="clients__table-title" data-name="lastEdit">
+                                    <span class="clients__table-title-lastEdit clients__table-arrow-down">Последние
+                                        изменения</span>
+                                </th>
+                                <th scope="col" class="clients__table-title clients__table-title-none">
+                                    <span>Контакты</span>
+                                </th>
+                                <th scope="col" class="clients__table-title clients__table-title-none">
+                                    <span>Действия</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="clients__table-body" id="tbody">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="clients__table-body-load" id="table__load">
+                    <span class="clients__load" id="clients__load"></span>
+                </div>
+            </div>
+        </section>
+        <section class="add">
+            <div class="container-lg container-md add__container">
+                <div class="row justify-content-center add__button">
+                    <button class="col-lg-3 col-md-4 col-sm-5  col-8 btn btn-outline-primary add__btn" id="addBtn">
+                        <svg width="23" height="16" viewBox="0 0 23 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M14.5 8C16.71 8 18.5 6.21 18.5 4C18.5 1.79 16.71 0 14.5 0C12.29 0 10.5 1.79 10.5 4C10.5 6.21 12.29 8 14.5 8ZM5.5 6V3H3.5V6H0.5V8H3.5V11H5.5V8H8.5V6H5.5ZM14.5 10C11.83 10 6.5 11.34 6.5 14V16H22.5V14C22.5 11.34 17.17 10 14.5 10Z" />
+                        </svg>
+                        Добавить клиента</button>
+                </div>
+            </div>
+            <div class="add__background">
+                <div class="add__modal">
+                    <form class="form-group add__form" id="addForm">
+                        <div class="add__form-container">
+                            <div class="add__form-head">
+                                <h2 class="add__form-title">Новый клиент</h2>
+                                <span class="add__form-close add__form-closeBtn" id="closeBtn">
+                                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M16.2332 1.73333L15.2665 0.766664L8.49985 7.53336L1.73318 0.766696L0.766515 1.73336L7.53318 8.50003L0.766542 15.2667L1.73321 16.2333L8.49985 9.46669L15.2665 16.2334L16.2332 15.2667L9.46651 8.50003L16.2332 1.73333Z" />
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="add__form-main">
+                                <div class="add__form-fio">
+                                    <ul class="add__form-list">
+                                        <li class="add__form-item">
+                                            <input type="text" class="form-control add__form-input" id="surname"
+                                                name="surname" required>
+                                            <label for="surname" class="lable add__form-lable" id="lableSurname">
+                                                Фамилия
+                                                <span class="add__form-lable-end">*</span>
+                                            </label>
+                                        </li>
+                                        <li class="add__form-item">
+                                            <input type="text" class="form-control add__form-input" id="name"
+                                                name="name" required>
+                                            <label for="name" class="lable add__form-lable" id="lableName">
+                                                Имя
+                                                <span class="add__form-lable-end">*</span>
+                                            </label>
+                                        </li>
+                                        <li class="add__form-item">
+                                            <input type="text" class="form-control add__form-input" id="lastName"
+                                                name="lastName">
+                                            <label for="lastName" class="lable add__form-lable"
+                                                id="lableLast">Отчество</label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="add__form-container add__form-contact">
+                            <div class="add__form-contact-list">
+                                <ul class="add__form-list-contact" id="contactsList"></ul>
+                                <div class="add__form-btn-contact">
+                                    <button class="add__form-contact-add" id="addContact">Добавить контакт</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="add__form-btn">
+                            <button class="btn btn-primary add__form-save" id="formSave"
+                                type="submit">Сохранить</button>
+                            <button class="add__form-cancel add__form-closeBtn" id="cancelBtn">Отмена</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="edit">
+            <div class="edit__background">
+                <div class="edit__modal">
+                    <form class="form-group edit__form" id="EditForm">
+                        <div class="edit__form-container">
+                            <div class="edit__form-head">
+                                <div class="edit__form-head-left">
+                                    <h2 class="edit__form-title">Изменить данные</h2>
+                                    <span class="edit__form-id" id="clientsId"></span>
+                                </div>
+                                <span class="add__form-close edit__form-closeBtn" id="closeEditBtn">
+                                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M16.2332 1.73333L15.2665 0.766664L8.49985 7.53336L1.73318 0.766696L0.766515 1.73336L7.53318 8.50003L0.766542 15.2667L1.73321 16.2333L8.49985 9.46669L15.2665 16.2334L16.2332 15.2667L9.46651 8.50003L16.2332 1.73333Z" />
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="edit__form-main">
+                                <div class="edit__form-fio">
+                                    <ul class="edit__form-list">
+                                        <li class="add__form-item">
+                                            <input type="text" class="form-control add__form-input" id="surnameEdit"
+                                                name="surname" required>
+                                            <label for="surnameEdit" class="lable add__form-lable" id="editSurname">
+                                                Фамилия
+                                                <span class="add__form-lable-end">*</span>
+                                            </label>
+                                        </li>
+                                        <li class="add__form-item">
+                                            <input type="text" class="form-control add__form-input" id="nameEdit"
+                                                name="name" required>
+                                            <label for="nameEdit" class="lable add__form-lable" id="editName">
+                                                Имя
+                                                <span class="add__form-lable-end">*</span>
+                                            </label>
+                                        </li>
+                                        <li class="add__form-item">
+                                            <input type="text" class="form-control add__form-input" id="lastNameEdit"
+                                                name="lastName">
+                                            <label for="lastNameEdit" class="lable add__form-lable"
+                                                id="editLast">Отчество</label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="edit__form-container add__form-contact edit__form-contact">
+                            <div class="add__form-contact-list">
+                                <ul class="add__form-list-contact" id="editContactsList"></ul>
+                                <div class="add__form-btn-contact">
+                                    <button class="add__form-contact-add" id="EditContact">Добавить контакт</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="add__form-btn">
+                            <button class="btn btn-primary add__form-save edit__form-save" id="EditSave">
+                                <span class="edit__form-icon-load"></span>
+                                Сохранить</button>
+                            <button class="add__form-cancel add__form-closeBtn" id="deletelBtn">Удалить клиента</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="delete">
+            <div class="delete__bacground">
+                <div class="delete__modal">
+                    <div class="delete__top">
+                        <h2 class="delete__title">Удалить клиента</h2>
+                        <span class="delete__subtitle">Вы&nbsp;действительно хотите удалить данного клиента?</span>
+                    </div>
+                    <div class="delete__down">
+                        <button class="btn btn-primary add__form-save" id="deleteClients">Удалить</button>
+                        <button class="add__form-cancel add__form-closeBtn" id="cancelClients">Отмена</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
