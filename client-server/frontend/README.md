@@ -43,6 +43,3 @@ headers: { 'Content-Type': 'application/json', }});`
 if (e.target.tagName != 'TH') { return; }
 let th = e.target; 
 sortTableStudent(th.cellIndex, th.dataset.name);});`
-
-## Примечания по использованию
-Также не забудьте запустить сервер, который находится по пути `./backend/index.js`, чтобы ваше приложение могло взаимодействовать с API и управлять данными студентов.
