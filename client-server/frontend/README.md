@@ -13,7 +13,7 @@
 #### Загружает список студентов
 При загрузке страницы выполняется запрос к API и загружается список студентов:
 
-`const response = await fetch('http://localhost:3000/api/students');`
+`const response = await fetch('http://localhost:3000/api/students');`<br>
 `const studentItemList = await response.json();`
 
 #### Добавление студента
