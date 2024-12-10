@@ -32,13 +32,13 @@ headers: { 'Content-Type': 'application/json', }});`
 #### Поиск студента
 Форма поиска студентов фильтрует результаты на основании введенных данных:
 
-`let studentSearch = searchStudent(studentItemList);`
+`let studentSearch = searchStudent(studentItemList);`<br>
 `studentSearch.forEach(element => {tbody.append(renderStudentsTable(element).tableRow);});`
 
 #### Сортировка студентов
 Сортировка таблицы студентов осуществляется при клике на заголовки таблицы:
 
-`let table = document.getElementById('table');`
+`let table = document.getElementById('table');`<br>
 `table.addEventListener('click', function (e) {  
 if (e.target.tagName != 'TH') { return; }
 let th = e.target; 
