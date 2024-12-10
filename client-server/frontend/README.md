@@ -13,8 +13,8 @@
 #### Загружает список студентов
 При загрузке страницы выполняется запрос к API и загружается список студентов:
 
-`const response = await fetch('http://localhost:3000/api/students');
-const studentItemList = await response.json();`
+`const response = await fetch('http://localhost:3000/api/students');`
+`const studentItemList = await response.json();`
 
 #### Добавление студента
 Форма добавления студента отправляет данные на сервер и обновляет таблицу после успешного добавления:
@@ -32,14 +32,14 @@ headers: { 'Content-Type': 'application/json', }});`
 #### Поиск студента
 Форма поиска студентов фильтрует результаты на основании введенных данных:
 
-`let studentSearch = searchStudent(studentItemList);
-studentSearch.forEach(element => {tbody.append(renderStudentsTable(element).tableRow);});`
+`let studentSearch = searchStudent(studentItemList);`
+`studentSearch.forEach(element => {tbody.append(renderStudentsTable(element).tableRow);});`
 
 #### Сортировка студентов
 Сортировка таблицы студентов осуществляется при клике на заголовки таблицы:
 
-`let table = document.getElementById('table');
-table.addEventListener('click', function (e) {  
+`let table = document.getElementById('table');`
+`table.addEventListener('click', function (e) {  
 if (e.target.tagName != 'TH') { return; }
 let th = e.target; 
 sortTableStudent(th.cellIndex, th.dataset.name);});`
